@@ -1,4 +1,4 @@
-﻿namespace WebshopAPI.Models
+﻿namespace WebshopAPI.Database
 {
     public class CartItem
     {

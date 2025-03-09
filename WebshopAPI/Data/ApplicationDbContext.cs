@@ -1,5 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using WebshopAPI.Models;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using WebshopAPI.Database;
 
 namespace Webshop.Data;
 public class ApplicationDbContext : IdentityDbContext<User>

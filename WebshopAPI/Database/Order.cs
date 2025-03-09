@@ -1,6 +1,6 @@
 ﻿using WebshopAPI.Enums;
 
-namespace WebshopAPI.Models
+namespace WebshopAPI.Database
 {
     public class Order
     {

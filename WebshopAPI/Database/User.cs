@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace WebshopAPI.Models;
+namespace WebshopAPI.Database;
 public class User : IdentityUser
 {
     public string FullName { get; set; }
