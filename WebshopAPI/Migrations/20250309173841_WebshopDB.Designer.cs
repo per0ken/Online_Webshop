@@ -11,7 +11,7 @@ using Webshop.Data;
 namespace WebshopAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250309154412_WebshopDB")]
+    [Migration("20250309173841_WebshopDB")]
     partial class WebshopDB
     {
         /// <inheritdoc />
@@ -150,7 +150,7 @@ namespace WebshopAPI.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("WebshopAPI.Models.CartItem", b =>
+            modelBuilder.Entity("WebshopAPI.Database.CartItem", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -171,7 +171,7 @@ namespace WebshopAPI.Migrations
                     b.ToTable("CartItems");
                 });
 
-            modelBuilder.Entity("WebshopAPI.Models.Category", b =>
+            modelBuilder.Entity("WebshopAPI.Database.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -191,7 +191,7 @@ namespace WebshopAPI.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("WebshopAPI.Models.Order", b =>
+            modelBuilder.Entity("WebshopAPI.Database.Order", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -212,7 +212,7 @@ namespace WebshopAPI.Migrations
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("WebshopAPI.Models.OrderItem", b =>
+            modelBuilder.Entity("WebshopAPI.Database.OrderItem", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -239,7 +239,7 @@ namespace WebshopAPI.Migrations
                     b.ToTable("OrderItems");
                 });
 
-            modelBuilder.Entity("WebshopAPI.Models.Product", b =>
+            modelBuilder.Entity("WebshopAPI.Database.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -249,11 +249,9 @@ namespace WebshopAPI.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("ImageUrl")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<bool>("IsOnSale")
@@ -276,7 +274,7 @@ namespace WebshopAPI.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("WebshopAPI.Models.User", b =>
+            modelBuilder.Entity("WebshopAPI.Database.User", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("varchar(255)");
@@ -296,7 +294,6 @@ namespace WebshopAPI.Migrations
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("FullName")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<bool>("IsAdmin")
@@ -358,7 +355,7 @@ namespace WebshopAPI.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("WebshopAPI.Models.User", null)
+                    b.HasOne("WebshopAPI.Database.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -367,7 +364,7 @@ namespace WebshopAPI.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("WebshopAPI.Models.User", null)
+                    b.HasOne("WebshopAPI.Database.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -382,7 +379,7 @@ namespace WebshopAPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("WebshopAPI.Models.User", null)
+                    b.HasOne("WebshopAPI.Database.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -391,30 +388,30 @@ namespace WebshopAPI.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("WebshopAPI.Models.User", null)
+                    b.HasOne("WebshopAPI.Database.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("WebshopAPI.Models.Category", b =>
+            modelBuilder.Entity("WebshopAPI.Database.Category", b =>
                 {
-                    b.HasOne("WebshopAPI.Models.Category", null)
+                    b.HasOne("WebshopAPI.Database.Category", null)
                         .WithMany()
                         .HasForeignKey("ParentId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
-            modelBuilder.Entity("WebshopAPI.Models.OrderItem", b =>
+            modelBuilder.Entity("WebshopAPI.Database.OrderItem", b =>
                 {
-                    b.HasOne("WebshopAPI.Models.Order", "Order")
+                    b.HasOne("WebshopAPI.Database.Order", "Order")
                         .WithMany("Items")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("WebshopAPI.Models.Product", "Product")
+                    b.HasOne("WebshopAPI.Database.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -425,16 +422,16 @@ namespace WebshopAPI.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("WebshopAPI.Models.Product", b =>
+            modelBuilder.Entity("WebshopAPI.Database.Product", b =>
                 {
-                    b.HasOne("WebshopAPI.Models.Category", null)
+                    b.HasOne("WebshopAPI.Database.Category", null)
                         .WithMany()
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("WebshopAPI.Models.Order", b =>
+            modelBuilder.Entity("WebshopAPI.Database.Order", b =>
                 {
                     b.Navigation("Items");
                 });
