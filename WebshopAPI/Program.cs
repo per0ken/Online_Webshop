@@ -5,6 +5,16 @@ using WebshopAPI.Database;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("frontend", policy =>
+    {
+        policy.WithOrigins("http://localhost:3000")  // Engedélyezi a React frontend domainjét
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 // Automapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
@@ -23,7 +33,11 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
+app.UseCors("frontend");
+
 app.UseHttpsRedirection();
+app.UseAuthentication();
+app.UseAuthorization();
 app.UseStaticFiles();
 
 // Routing

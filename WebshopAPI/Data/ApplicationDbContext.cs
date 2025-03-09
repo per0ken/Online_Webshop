@@ -18,32 +18,29 @@ public class ApplicationDbContext : IdentityDbContext<User>
     {
         base.OnModelCreating(modelBuilder);
 
-        // Order és OrderItem kapcsolata
+        // 1 orderitem has 1 order and many items
         modelBuilder.Entity<OrderItem>()
             .HasOne(oi => oi.Order)
             .WithMany(o => o.Items)
             .HasForeignKey(oi => oi.OrderId)
             .OnDelete(DeleteBehavior.Cascade);
 
-        // OrderItem és Product kapcsolata
         modelBuilder.Entity<OrderItem>()
             .HasOne(oi => oi.Product)
             .WithMany()
             .HasForeignKey(oi => oi.ProductId)
             .OnDelete(DeleteBehavior.Restrict);
 
-        // CartItem kapcsolatok
         modelBuilder.Entity<CartItem>()
             .HasKey(ci => ci.Id);
 
-        // Category önkapcsolat (subcategories)
+        // Subcategories
         modelBuilder.Entity<Category>()
             .HasOne<Category>()
             .WithMany()
             .HasForeignKey(c => c.ParentId)
             .OnDelete(DeleteBehavior.Restrict);
 
-        // Product és Category kapcsolata
         modelBuilder.Entity<Product>()
             .HasOne<Category>()
             .WithMany()

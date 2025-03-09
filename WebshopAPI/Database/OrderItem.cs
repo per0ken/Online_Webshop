@@ -3,13 +3,13 @@
     public class OrderItem
     {
         public int Id { get; set; }
-        public int OrderId { get; set; }  // Melyik rendeléshez tartozik
-        public int ProductId { get; set; }  // Melyik terméket vásárolták meg
-        public int Quantity { get; set; }  // Hány darabot rendeltek belőle
-        public decimal Price { get; set; }  // Az akkori ár, amikor megrendelték
+        public int OrderId { get; set; } 
+        public int ProductId { get; set; } 
+        public int Quantity { get; set; } 
+        public decimal Price { get; set; }
 
-        public Order Order { get; set; }  // Kapcsolat a rendeléshez
-        public Product Product { get; set; }  // Kapcsolat a termékhez
+        public required Order Order { get; set; }  // which order
+        public required Product Product { get; set; }  // which product
     }
 
 }

@@ -40,5 +40,34 @@ namespace WebshopAPI.Controllers
 
             return BadRequest("Invalid data");
         }
+
+    [HttpPost("account/login")]
+        public async Task<IActionResult> Login([FromBody] LoginModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.FindByNameAsync(model.Username);
+
+                if (user != null)
+                {
+                    var result = await _signInManager.PasswordSignInAsync(user, model.Password, false, false);
+
+                    if (result.Succeeded)
+                    {
+                        _logger.LogInformation("Login was successful");
+                        return Ok(new { message = "Login was successful" });
+                    }
+                    else
+                    {
+                        _logger.LogInformation("Invalid password");
+                        return Unauthorized(new { message = "Invalid password" });
+                    }
+                }
+
+                return Unauthorized(new { message = "User not found" });
+            }
+
+            return BadRequest(new { message = "Invalid data" });
+        }
     }
 }
