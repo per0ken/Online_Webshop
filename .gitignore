@@ -398,3 +398,5 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+Webshop/API/appsettings.json
+Webshop/API/appsettings.Development.json
