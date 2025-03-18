@@ -178,7 +178,7 @@ public class DbInitializer
                     Description =
                         "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.",
                     Price = 19999,
-                    ImageUrl= "NetCore",
+                    ImageUrl= "/images/products/boot-core1.png",
                     Brand = "Angular",
                     Type = "Boots",
                     QuantityInStock = 100
