@@ -19,7 +19,7 @@ This is a full-stack webshop made with ASP.NET and React.Js.
 * Redux
 * MUI
 
-## User functions:
+## Functionality:
 
 * Filtering and sorting products
 * Putting items in cart
