@@ -29,7 +29,7 @@ This is a full-stack webshop made with ASP.NET and React.Js.
 * Live chat support with admins
 * Admin panel
 
-## Features
+## Architecture
 
 * Fast and reliable application
 * Transparent structure
