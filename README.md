@@ -38,3 +38,4 @@ This is a full-stack webshop made with ASP.NET and React.Js.
 * Secure CRUD operations
 * Database Initializer
 * CORS and Rate limiting
+* Catching data
