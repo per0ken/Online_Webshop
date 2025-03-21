@@ -400,3 +400,5 @@ FodyWeavers.xsd
 *.sln.iml
 Webshop/API/appsettings.json
 Webshop/API/appsettings.Development.json
+Webshop/API/store.db-shm
+Webshop/API/store.db-wal
