@@ -17,6 +17,7 @@ This is a full-stack webshop made with ASP.NET and React.Js.
 * Vite + React
 * React Router
 * Redux
+* RTK
 * MUI
 
 ## Functionality:
