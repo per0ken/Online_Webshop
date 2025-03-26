@@ -6,16 +6,16 @@ This is a full-stack webshop made with ASP.NET and React.Js.
 
 ### Backend
 
-* .NET 9
-* ASP.NET 9
-* EntityFrameworkCore.Design - to migrate and update database
-* EntityFrameworkCore.Sqlite - to use sql database locally
-* AspNetCore.Identity.EntityFrameworkCore - Users, roles
+* .NET 9.0.0
+* ASP.NET 9.0.0
+* EntityFrameworkCore.Design 9.0.0 - to migrate and update database
+* EntityFrameworkCore.Sqlite 9.0.0 - to use sql database locally
+* AspNetCore.Identity.EntityFrameworkCore 9.0.0 - Users, roles
 
 ### Frontend 
 
-* Node.Js
-* Vite + React
+* Node.Js - npm 10.9.2 , node v22.14.0
+* Vite + React - React 19
 * React Router
 * JS Cookie
 * Redux
@@ -51,7 +51,7 @@ This is a full-stack webshop made with ASP.NET and React.Js.
 ## Settings up
 
 # frontend
-* npm install
+* npm install --legacy-peer-deps
 * npm run dev
 * .env(backend api url, stripe pk)
 
