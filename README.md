@@ -48,6 +48,18 @@ This is a full-stack webshop made with ASP.NET and React.Js.
 * Catching data
 * (test) Payments
 
+## Settings up
+
+# frontend
+* npm install
+* npm run dev
+* .env(backend api url, stripe pk)
+
+# backend
+* dotnet build
+* dotnet restore
+* dotnet run
+* appsettings (sql, stripe)
 
 # Successful payment:
 4242 4242 4242 4242 12/26 123
