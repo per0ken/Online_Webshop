@@ -56,6 +56,7 @@ This is a full-stack webshop made with ASP.NET and React.Js.
 * .env(backend api url, stripe pk)
 
 # backend
+* Docker
 * dotnet build
 * dotnet restore
 * dotnet run
