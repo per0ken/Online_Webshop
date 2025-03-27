@@ -5,9 +5,11 @@ import { createApi } from "@reduxjs/toolkit/query/react";
  export const orderApi = createApi({
      reducerPath: 'orderApi',
      baseQuery: baseQueryWithErrorHandling,
+     tagTypes: ['Orders'],
      endpoints: (builder) => ({
          fetchOrders: builder.query<Order[], void>({
-             query: () => 'orders'
+             query: () => 'orders',
+             providesTags: ['Orders']
          }),
          fetchOrderDetailed: builder.query<Order, number>({
              query: (id) => ({
@@ -19,7 +21,11 @@ import { createApi } from "@reduxjs/toolkit/query/react";
                  url: 'orders',
                  method: 'POST',
                  body: order
-             })
+             }),
+             onQueryStarted: async (_, {dispatch, queryFulfilled}) => {
+                await queryFulfilled;
+                dispatch(orderApi.util.invalidateTags(['Orders']))
+             }
          })
      })
  })
