@@ -26,7 +26,7 @@ jobs:
       - name: Install deps and build frontend app
         run: | 
           cd frontend
-          npm install
+          npm install --legacy-peer-deps
           npm run build
 
       - name: Set up .NET Core
